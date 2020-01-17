@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
   def index
     @user = User.find(current_user.id)
     @post = Post.new
@@ -7,5 +7,5 @@ class ProfileController < ApplicationController
     @user_posts = current_user.posts
   end
 
-    
+
 end

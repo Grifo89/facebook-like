@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def create
     current_user.posts.create(body: post_params[:body])
@@ -12,5 +12,5 @@ class PostsController < ApplicationController
       params.require(:post).permit(:body)
     end
 
-   
+
 end
