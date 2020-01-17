@@ -1,0 +1,13 @@
+<h1>Welcome Mr/Mrs. <%= @user.email %></h1>
+
+
+<h4>What's on your mind?</h4>
+<%= form_with model: @post, class: "post" do |f| %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Post" %>
+<% end %>
+
+<h4>Previous posts</h4>
+<% @user_posts.each do |post| %>
+  <p><%= post.body %> - <span><%= post.created_at %></span></p>
+<% end %>
