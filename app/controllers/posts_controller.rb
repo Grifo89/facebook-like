@@ -2,9 +2,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    current_user.posts.create(body: post_params[:body])
-    flash[:success] = "Your post has been created!"
-    redirect_to root_url
+    @post = current_user.posts.new(body: post_params[:body])
+    if @post.save
+      flash[:success] = "Your post has been created!"
+      redirect_to root_url
+    else
+      @user = current_user
+      @user_posts = @user.posts
+      render 'profile/index'
+    end  
   end
 
   private
