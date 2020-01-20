@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    Like.create(user_id: current_user.id, post_id: @post.id, status: true)
+  end
+
   private
 
   def post_params
