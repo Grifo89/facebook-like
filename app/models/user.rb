@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :posts, -> { order 'created_at DESC' }, dependent: :destroy
   has_many :likes
-  has_many :liked_posts, through: :likes, source: 'post_id'
+  has_many :liked_posts, :through => :likes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
