@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'profile', to: 'profile#index'
   devise_for :users
   resources :posts do
-    member do
-      post :liked
-    end
+      post 'like', to: 'posts#like'
   end
 end

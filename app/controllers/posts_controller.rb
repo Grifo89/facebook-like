@@ -16,8 +16,10 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:post_id])
     Like.create(user_id: current_user.id, post_id: @post.id, status: true)
+    flash[:success] = "Post liked"
+    # puts @post
   end
 
   private
