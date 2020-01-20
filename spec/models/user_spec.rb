@@ -27,22 +27,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-<<<<<<< HEAD
   describe 'Associations ' do
     it 'has one or more posts' do
       assoc = described_class.reflect_on_association(:posts)
       post1 = Post.create(body: 'test 1 is here', user: subject)
       post2 = Post.create(body: 'test 1 is here', user: subject)
 
-=======
-  describe "Associations " do
-    
-    it "has one or more posts" do
-      assoc = described_class.reflect_on_association(posts)
-      post1 = Post.create(body: "test 1 is here", user:subject)
-      post2 = Post.create(body: "test 1 is here", user:subject)
-      
->>>>>>> 212e35abad832a227a6c78546f390f22e4736cd1
       expect(subject.posts.count).to eq 2
     end
   end
