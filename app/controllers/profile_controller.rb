@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -6,6 +8,4 @@ class ProfileController < ApplicationController
 
     @user_posts = current_user.posts
   end
-
-
 end

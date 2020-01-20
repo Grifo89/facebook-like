@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Sign up', type: :feature do
@@ -7,6 +9,6 @@ RSpec.describe 'Sign up', type: :feature do
     fill_in 'user[password]', with: '123456'
     fill_in 'user[password_confirmation]', with: '123456'
     click_button('Sign up')
-    expect(page).to have_content("Welcome! You have signed up successfully")
+    expect(page).to have_content('Welcome! You have signed up successfully')
   end
 end
