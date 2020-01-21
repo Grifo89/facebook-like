@@ -3,6 +3,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = User.find(current_user.id)
+    @post = Post.new
+
+    @user_posts = current_user.posts
+  end
   def create
     @post = current_user.posts.new(body: post_params[:body])
     if @post.save
@@ -19,6 +25,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:post_id])
     Like.create(user_id: current_user.id, post_id: @post.id, status: true)
     flash[:success] = "Post liked"
+    redirect_to root_path
     # puts @post
   end
 

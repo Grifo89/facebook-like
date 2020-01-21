@@ -9,5 +9,7 @@
   <p><%= post.body %> - <span><%= post.created_at %></span></p>
   <% if(!current_user.liked_posts.find_by(id: post.id)) %>
     <%= link_to "👍 like", post_like_path(post), method: :post %>
+  <% else %>
+    <%= "Likes (#{post.likes.count})" %>
   <% end %>
 <% end %>
