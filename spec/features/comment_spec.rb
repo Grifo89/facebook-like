@@ -6,7 +6,7 @@ RSpec.feature 'Comments', type: :feature do
   let(:user) { User.create(email: 'edem@gmail.com', password: '111111') }
   before do
     sign_in(user)
-    post = user.posts.create(body: 'My post')
+    user.posts.create(body: 'My post')
   end
 
   it 'can comment on post' do

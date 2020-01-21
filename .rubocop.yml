@@ -33,3 +33,6 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
+
+Lint/Void:
+  Enabled: false
