@@ -8,15 +8,15 @@ class User < ApplicationRecord
   has_many :liked_posts, :through => :likes
   has_many :comments
   has_many :commented_posts, :through => :comments
-  has_many :friendships, :class_name=> 'Friendship', :foreign_key => 'sender_id'
-  has_many :inverse_friendships, :class_name=> 'Friendship', :foreign_key => 'receiver_id'
+  has_many :friendships, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'receiver_id'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
 
   def friends 
     friends_array = friendships.map{|friendship| friendship.receiver if friendship.status}
-    friends_array + inverse_friendships.map{|friendship| friendship.sender if friendship.status}
+    friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.status}
     friends_array.compact
   end
 
@@ -27,11 +27,11 @@ class User < ApplicationRecord
   
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.sender if !friendship.status}.compact
+    inverse_friendships.map{|friendship| friendship.user if !friendship.status}.compact
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.sender == user}
+    friendship = inverse_friendships.find{|friendship| friendship.user == user}
     friendship.status = true
     friendship.save
   end
