@@ -12,4 +12,7 @@
   <% else %>
     <%= "Likes (#{post.likes.count})" %>
   <% end %>
+  <% form_with model:@post.comment %>
+    <%= text_field_tag :comment, size: "60x12" %>  <% end %>
+  <% end %>
 <% end %>

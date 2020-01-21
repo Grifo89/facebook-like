@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts do
       post 'like', to: 'posts#like'
+      resources :comments
   end
   resources :posts
   get 'users/index', to: 'users#index'
