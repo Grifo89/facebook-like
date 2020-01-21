@@ -11,8 +11,15 @@
     <%= link_to "👍 like", post_like_path(post), method: :post %>
   <% else %>
     <%= "Likes (#{post.likes.count})" %>
+    <%= "Comments (#{post.comments.count})" %> 
   <% end %>
-  <% form_with model:@post.comment %>
-    <%= text_field_tag :comment, size: "60x12" %>  <% end %>
+  <%= form_with(url: post_comment_path(post), method: 'post') do %>
+    <%= text_field_tag :comment %>
+    <%= submit_tag "Comment" %>
   <% end %>
+    <ul>
+      <% post.comments.each do |comment| %>
+      <li><%= comment.body %></li>
+      <%end%>
+    </ul>
 <% end %>

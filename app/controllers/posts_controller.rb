@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @post = Post.new
-
     @user_posts = current_user.posts
   end
   def create
@@ -27,6 +26,13 @@ class PostsController < ApplicationController
     flash[:success] = "Post liked"
     redirect_to root_path
     # puts @post
+  end
+
+  def comment
+    @post = Post.find_by(id: params[:post_id])
+    Comment.create(user_id: current_user.id, post_id: @post.id, body: params[:comment])
+    flash[:success] = "Post commented"
+    redirect_to root_path
   end
 
   private
