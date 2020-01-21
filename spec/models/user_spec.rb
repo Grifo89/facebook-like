@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:posts) { Post.new(body: 'post content') }
-  let(:friendships){Friendship.new}
-  let(:inverse_friendships){Friendship.new}
+  let(:friendships) { Friendship.new }
+  let(:inverse_friendships) { Friendship.new }
   subject { described_class.new(email: 'edem@gmail.com', password: 'secret') }
   describe 'Validations' do
     it 'is valid with valid attributes' do
@@ -38,12 +38,12 @@ RSpec.describe User, type: :model do
       expect(subject.posts.count).to eq 2
     end
 
-    it "has one or many friends" do
+    it 'has one or many friends' do
       assoc = described_class.reflect_on_association(:friendships)
       expect(assoc.macro).to eq :has_many
     end
 
-    it "has one or many inverse friends" do
+    it 'has one or many inverse friends' do
       assoc = described_class.reflect_on_association(:inverse_friendships)
       expect(assoc.macro).to eq :has_many
     end

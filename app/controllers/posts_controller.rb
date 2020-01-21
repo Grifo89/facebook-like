@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @user_posts = current_user.posts
   end
+
   def create
     @post = current_user.posts.new(body: post_params[:body])
     if @post.save
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   def like
     @post = Post.find_by(id: params[:post_id])
     Like.create(user_id: current_user.id, post_id: @post.id, status: true)
-    flash[:success] = "Post liked"
+    flash[:success] = 'Post liked'
     redirect_to root_path
     # puts @post
   end
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
   def comment
     @post = Post.find_by(id: params[:post_id])
     Comment.create(user_id: current_user.id, post_id: @post.id, body: params[:comment])
-    flash[:success] = "Post commented"
+    flash[:success] = 'Post commented'
     redirect_to root_path
   end
 

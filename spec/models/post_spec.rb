@@ -29,13 +29,13 @@ RSpec.describe Post, type: :model do
       assoc = described_class.reflect_on_association(:user)
       expect(assoc.macro).to eq :belongs_to
     end
-    
-    it "has one or more likes" do
+
+    it 'has one or more likes' do
       assoc = described_class.reflect_on_association(:likes)
       expect(assoc.macro).to eq :has_many
     end
 
-    it "has one or more comments" do 
+    it 'has one or more comments' do
       assoc = described_class.reflect_on_association(:comments)
       expect(assoc.macro).to eq :has_many
     end
