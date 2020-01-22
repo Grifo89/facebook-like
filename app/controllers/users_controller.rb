@@ -10,13 +10,14 @@ class UsersController < ApplicationController
   def send_friend_request
     current_user.friendships.create(receiver_id: params[:id])
     redirect_to root_path
-    flash[:success] = "friendship request sent"
+    flash[:success] = 'friendship request sent'
   end
+
   def send_friend_response
     user = User.find(params[:id])
     current_user.confirm_friend(user)
 
     redirect_to root_path
-    flash[:success] = "Friend accepted"
+    flash[:success] = 'Friend accepted'
   end
 end

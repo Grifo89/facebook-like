@@ -35,8 +35,6 @@ class User < ApplicationRecord
     friendship.save
   end
 
-  
-
   def friend?(user)
     friends.include?(user)
   end
