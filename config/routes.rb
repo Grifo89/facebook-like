@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'posts', to: 'posts#index'
   devise_for :users
   resources :posts
-  get 'users/index', to: 'users#index'
+  get 'users', to: 'users#index'
 end
