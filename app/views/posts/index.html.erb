@@ -9,7 +9,7 @@
 <% @user_posts.each do |post| %>
   <p><%= post.body %> - <span><%= post.created_at %></span></p>
   <% if(!current_user.liked_posts.find_by(id: post.id)) %>
-    <%= link_to "like", post_like_path(post), method: :post %>
+    <%= link_to "👍 like", post_like_path(post), method: :post %>
   <% else %>
     <%= "Likes (#{post.likes.count})" %>
     <%= "Comments (#{post.comments.count})" %>
