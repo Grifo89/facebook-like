@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :commented_posts, through: :comments
   has_many :friendships, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'receiver_id'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
