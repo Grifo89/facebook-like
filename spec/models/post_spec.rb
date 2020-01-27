@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:user) { User.new }
+  let(:likes) { Like.new }
+  let(:comments) { Comment.new }
   subject { described_class.new(body: 'this is the test', user: user) }
 
   describe 'Validations' do
@@ -26,6 +28,16 @@ RSpec.describe Post, type: :model do
     it 'belongs to a user' do
       assoc = described_class.reflect_on_association(:user)
       expect(assoc.macro).to eq :belongs_to
+    end
+
+    it 'has one or more likes' do
+      assoc = described_class.reflect_on_association(:likes)
+      expect(assoc.macro).to eq :has_many
+    end
+
+    it 'has one or more comments' do
+      assoc = described_class.reflect_on_association(:comments)
+      expect(assoc.macro).to eq :has_many
     end
   end
 end

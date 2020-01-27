@@ -6,5 +6,21 @@
 
 <h4>Previous posts</h4>
 <% @user_posts.each do |post| %>
-  <p><%= post.body %> - <span><%= post.user.email %></span></p>
+  <p><%= post.body %> - <span><%= post.created_at %></span></p>
+  <% if(!current_user.liked_posts.find_by(id: post.id)) %>
+    <%= link_to "like", post_like_path(post), method: :post %>
+  <% else %>
+    <%= "Likes (#{post.likes.count})" %>
+    <%= "Comments (#{post.comments.count})" %> 
+  <% end %>
+  <%= form_with(url: post_comment_path(post), method: 'post') do %>
+    <%= text_field_tag :comment %>
+    <%= submit_tag "Comment" %>
+  <% end %>
+    <ul>
+      <% post.comments.each do |comment| %>
+      <li><%= comment.body %></li>
+      <%end%>
+    </ul>
 <% end %>
+
