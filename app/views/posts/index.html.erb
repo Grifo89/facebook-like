@@ -1,24 +1,29 @@
-<h1>Welcome Mr/Mrs. <%= @user.email %></h1>
-
-<h4>What's on your mind?</h4>
+<h4>Feeds</h4>
 <%= render 'posts/new' %>
-
-<h4>Previous posts</h4>
+<ul class="list-unstyled">
 <% @user_posts.each do |post| %>
-  <p><%= post.body %> - <span><%= post.created_at %></span></p>
-  <% if(!current_user.liked_posts.find_by(id: post.id)) %>
-    <%= link_to "👍 like", post_like_path(post), method: :post %>
-  <% else %>
-    <%= "Likes (#{post.likes.count})" %>
-    <%= "Comments (#{post.comments.count})" %>
-  <% end %>
-  <%= form_with(url: post_comment_path(post), method: 'post') do %>
-    <%= text_field_tag :comment %>
-    <%= submit_tag "Comment" %>
-  <% end %>
+  <li class="media feed">
+    <img src="#" class="mr-3" alt="owner">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><%= post.user.email%></h5>
+      <p class="body"><%= post.body %></p>
+        <% if(!current_user.liked_posts.find_by(id: post.id)) %>
+          <%= link_to "👍 like", post_like_path(post), method: :post %>
+        <% else %>
+          <%= "Likes (#{post.likes.count})" %>
+          <%= "Comments (#{post.comments.count})" %>
+        <% end %>
+        <%= form_with(url: post_comment_path(post), method: 'post', class: 'comment') do %>
+          <%= text_area_tag :comment %>
+          <%= submit_tag "Comment", class: 'btn btn-success btn-sm' %>
+        <% end %>
     <ul>
       <% post.comments.each do |comment| %>
       <li><%= comment.body %></li>
       <%end%>
     </ul>
+    </div>
+  </li>
+
 <% end %>
+</ul>
