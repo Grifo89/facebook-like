@@ -1,6 +1,6 @@
 <h1>Welcome Mr/Mrs. <%= @user.email %></h1>
 
-<p>You have <%=  pluralize(@requests.count, 'request') %> <%= link_to "View All", users_index_path %> </p>
+<p>You have <%=  pluralize(@requests.count, 'request') %> <%= link_to "View All", users_path %> </p>
 
 <h4>What's on your mind?</h4>
 <%= render 'posts/new' %>
@@ -24,4 +24,3 @@
       <%end%>
     </ul>
 <% end %>
-
