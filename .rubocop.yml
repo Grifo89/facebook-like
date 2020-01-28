@@ -27,6 +27,8 @@ Style/ClassAndModuleChildren:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Style/RedundantSelf:
+  Enabled: false
 
 Layout/ExtraSpacing:
   AllowForAlignment: false
