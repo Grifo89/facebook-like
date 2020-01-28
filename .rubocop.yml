@@ -29,6 +29,8 @@ Style/GuardClause:
   Enabled: false
 Style/RedundantSelf:
   Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
 
 Layout/ExtraSpacing:
   AllowForAlignment: false
