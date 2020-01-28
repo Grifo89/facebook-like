@@ -1,5 +1,6 @@
 <h1>Welcome Mr/Mrs. <%= @user.email %></h1>
 
+<p>You have <%=  pluralize(@requests.count, 'request') %> <%= link_to "View All", users_path %> </p>
 
 <h4>What's on your mind?</h4>
 <%= render 'posts/new' %>
@@ -11,7 +12,7 @@
     <%= link_to "like", post_like_path(post), method: :post %>
   <% else %>
     <%= "Likes (#{post.likes.count})" %>
-    <%= "Comments (#{post.comments.count})" %> 
+    <%= "Comments (#{post.comments.count})" %>
   <% end %>
   <%= form_with(url: post_comment_path(post), method: 'post') do %>
     <%= text_field_tag :comment %>
@@ -23,4 +24,3 @@
       <%end%>
     </ul>
 <% end %>
-

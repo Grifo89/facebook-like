@@ -2,5 +2,14 @@
 <ul>
 <% @users.each do |user| %>
   <li><%= user.email %></li>
+  <%if current_user.friend?(user) %>
+    <span>You are friends</span>
+  <%elsif current_user.pending_friends.include?(user) %>
+    <span>Awaiting response</span>
+  <%elsif current_user.friend_requests.include?(user) %>
+    <span><%= link_to 'Accept', friendsrs_path(user), method: 'post' %></span>
+  <%elsif !current_user.friend?(user) %>
+  <%= link_to 'Friendship request', friendsrq_path(user.id), method: 'post' %> 
+  <% end %>
 <% end %>
 </ul>
