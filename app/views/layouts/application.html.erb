@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class="app">
     <%= render 'layouts/header' %>
     <% flash.each do |type,message| %>
       <div class="alert alert-<%= type %>">
@@ -22,7 +22,8 @@
         <div class="col-6">
           <%= yield %>
         </div>
-        <div class="col-3"></div>
+        <div class="col-3">
+        <%= render  "layouts/suggestions" %></div>
       </div>
     </div>
   </body>
