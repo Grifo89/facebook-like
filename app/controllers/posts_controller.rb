@@ -7,8 +7,7 @@ class PostsController < ApplicationController
     @user = User.find(current_user.id)
     @post = Post.new
     # @user_posts = Post.all
-    # Get the posts of 
-    friends =[]
+    friends = []
     @user.friends.map do |v|
       friends << v.id
     end
