@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  it "belongs to a post" do
-
+  it 'belongs to a post' do
   end
 end
