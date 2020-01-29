@@ -12,6 +12,6 @@
       </ul>
     </div>
   <% end %>
-  <%= f.text_area :body, size: "60x12" %>
-  <%= f.submit "Post" %>
+  <%= f.text_area :body, class: 'post-textarea', placeholder: "What's on your mind?" %>
+  <%= f.submit "Post", class: 'btn btn-primary btn-sm' %>
 <% end %>
