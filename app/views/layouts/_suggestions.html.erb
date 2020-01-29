@@ -2,7 +2,7 @@
 
 <div class="card about">
   <div class="card-body">
-    <h5 class="card-title"><%= @user.email %></h5>
+    <h5 class="card-title"><%= current_user.email %></h5>
     <%= link_to  "Make Friend", users_path %>
   </div>
 </div>

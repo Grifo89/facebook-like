@@ -8,7 +8,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="app">
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header'%>
     <% flash.each do |type,message| %>
       <div class="alert alert-<%= type %>">
         <%= message %>
@@ -17,13 +17,13 @@
     <div class="container">
       <div class="row">
         <div class="col-3">
-        <%= render  "layouts/about" %>
+        <%= render  "layouts/about" if current_user %>
         </div>
         <div class="col-6">
           <%= yield %>
         </div>
         <div class="col-3">
-        <%= render  "layouts/suggestions" %></div>
+        <%= render  "layouts/suggestions"  if current_user %></div>
       </div>
     </div>
   </body>
