@@ -10,7 +10,7 @@ RSpec.feature 'FriendRequests', type: :feature do
   end
 
   it ' send a friend request ' do
-    visit users_index_path
+    visit users_path
     click_on 'Send Request'
     expect(page).to have_content 'User request sent!'
   end
