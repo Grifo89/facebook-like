@@ -7,7 +7,7 @@
 
 <h4>Previous posts</h4>
 <% @user_posts.each do |post| %>
-  <p><%= post.body %> - <span><%= post.created_at %></span></p>
+  <p><%= post.body %> - <span><%= post.user.email %></span></p>
   <% if(!current_user.liked_posts.find_by(id: post.id)) %>
     <%= link_to "like", post_like_path(post), method: :post %>
   <% else %>

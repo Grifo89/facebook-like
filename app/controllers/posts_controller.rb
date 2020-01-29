@@ -6,7 +6,14 @@ class PostsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @post = Post.new
-    @user_posts = Post.all
+    # @user_posts = Post.all
+    # Get the posts of 
+    friends =[]
+    @user.friends.map do |v|
+      friends << v.id
+    end
+    friends << current_user.id
+    @user_posts = Post.where(user_id: friends)
     @requests = current_user.friend_requests
   end
 
