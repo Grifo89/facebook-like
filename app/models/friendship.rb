@@ -10,11 +10,9 @@ class Friendship < ApplicationRecord
   def users_are_not_already_friends
     puts " userid: #{user_id} receiver_id: #{receiver_id}"
     if Friendship.where(user_id: user.id, receiver_id: receiver.id, status: true).any? || Friendship.where(user_id: receiver.id, receiver_id: user.id, status: true).any?
-      puts "friends already"
       errors.add(:user_id, 'Already friends!')
       return false
     else
-      puts "strangers"
       return true
     end
   end
