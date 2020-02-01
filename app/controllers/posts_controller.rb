@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @user = User.find(current_user.id)
     @post = Post.new
     @user_posts = Post.all
+    @requests = current_user.friend_requests
   end
 
   def create
