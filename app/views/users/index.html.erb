@@ -9,6 +9,7 @@
   <%elsif current_user.friend_requests.include?(user) %>
     <span><%= link_to 'Accept', friendsrs_path(user), method: 'post' %></span>
   <%elsif !current_user.friend?(user) %>
+  <button>Send Chapo</button>
   <%= link_to 'Send Request', friendsrq_path(user.id), method: 'post' %> 
   <% end %>
 <% end %>
