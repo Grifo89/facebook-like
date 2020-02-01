@@ -42,7 +42,7 @@ class User < ApplicationRecord
     inverse_friendships.find { |a| a.user == user }.update(status: true)
     # Create a reverse friendship
     puts "Self is #{self}"
-    self.friendships.create(receiver: user, status: true)
+    friendships.create(receiver: user, status: true)
   end
 
   def friend?(user)

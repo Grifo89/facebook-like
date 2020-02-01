@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   layout :app_layout
 
   private
-    def app_layout
-      current_user ? 'application' : 'welcome'
-    end
+
+  def app_layout
+    current_user ? 'application' : 'welcome'
+  end
 end
