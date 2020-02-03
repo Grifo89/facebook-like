@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def send_friend_response
-    user = User.find(params[:id])
+    user = User.find(params[:id]) 
     current_user.confirm_friend(user)
 
     redirect_to root_path
