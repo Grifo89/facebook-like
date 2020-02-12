@@ -1,4 +1,7 @@
 
+
+<p>You have <%=  pluralize(@requests.count, 'request') %> <%= link_to "View All", users_path %> </p>
+
 <h4>Feeds</h4>
 <%= render 'posts/new' %>
 <ul class="list-unstyled">
