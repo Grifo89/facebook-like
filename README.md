@@ -1,6 +1,6 @@
 # Facebook-like application with Ruby on Rails
 
-> This is part of the Forms Project in The Odin Project’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project and requirement from Microverse Program.
+> This is a Facebook-like application built using Ruby, Ruby on Rails and Bootstrap.
 
 ![screenshot](./app_screenshot1.PNG)
 
@@ -13,6 +13,7 @@
 
 - Ruby Version 2.6.5
 - Rails 6.0.1
+- Bootstrap
 
 To get a local copy up and running follow these simple example steps.
 
@@ -31,6 +32,10 @@ Clone project and run
  Start the rails server
 `rails server`
 
+### Testing
+You should run
+`rspec spec`
+
 ## How to contribute and partipate
 Fork this repo and submit a PR for review and potential merge to main branch
 
@@ -45,3 +50,5 @@ Fork this repo and submit a PR for review and potential merge to main branch
 👨‍💻 **Christian Salazar**
 
 - Github: [@grifo89](https://github.com/grifo89)
+- Twitter: [Christian_sm91](https://twitter.com/Christian_sm91)
+- LinkedIn: [Christian Salazar](https://www.linkedin.com/in/christian-salazar-mi%C3%B1o/)
