@@ -52,3 +52,9 @@ Fork this repo and submit a PR for review and potential merge to main branch
 - Github: [@grifo89](https://github.com/grifo89)
 - Twitter: [Christian_sm91](https://twitter.com/Christian_sm91)
 - LinkedIn: [Christian Salazar](https://www.linkedin.com/in/christian-salazar-mi%C3%B1o/)
+
+
+## Known issues or improvement
+1. Improve design
+2. Allow users to post images, gifs and videos
+3. Send confirmation email to user upon registration
