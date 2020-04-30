@@ -1,3 +1,43 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "./variables";
+
+@media (min-width: 992px) {
+  nav.navbar {
+    padding: 15px ; 
+    background-color: $main;
+    justify-content: flex-end;
+    form {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 80% !important;
+        border: none;
+      }
+    }
+    .profile{
+      align-self: flex-end;
+    }
+    .navbar-nav {
+      li.nav-item {
+        width: auto;
+        a.nav-link {
+          img {
+            width: 20px !important;
+          }
+        }
+      }
+    }
+    .links{
+      li{
+        color:#FFFFFF;
+        a{
+          color:white;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
