@@ -85,40 +85,13 @@
   background-color: $secondary;
 }
 
-form.post{
-  .post-textarea{
-    width: 100%;
-    height: 15vh;
-    font-size: 12px;
-    border:1px solid #cccccc;
-    border-radius: 5px;
-  }
-  .post-textarea:focus{
-    box-shadow: none;
-  }
+ul.navbar-nav li.nav-item .dropdown-menu{
+  border-radius: 0 !important;
+  margin-top:15px;
+  right:30px;
 }
 
-.feed{
-  flex-direction: column;
-  border:1px solid #cccccc;
-  border-radius: 5px;
-  margin: 10px 0;
-  background: #FFFFFF;
-  padding: 10px;
-  h5{
-    font-size: .8em;
-  }
-  p.body{
-    font-size: .7em;
-    margin-bottom: .5em;
-  }
-  br{
-    border:4px solid red;
-  }
-  .media-body{
-    width: 100%;
-  }
-}
+
 form.comment{
   textarea{
     width: 100%;
@@ -128,3 +101,4 @@ form.comment{
     border-radius:5px;
   }
 }
+

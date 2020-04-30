@@ -1,6 +1,6 @@
  <% if user_signed_in? %>
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <a class="navbar-brand" href="/">FriendsBook</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
     </form>
     <ul class="navbar-nav links">
       <li class="nav-item">
-        <a href="/">Edem Agbenyo</a>|
+        <a href="/"><%= current_user.email %></a>|
       </li>
       <li class="nav-item">
         <a href="/">Create</a>|
@@ -22,16 +22,12 @@
       </li>
     </ul>
     <ul class="navbar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link" href="/users"> <%= image_tag 'add_friend.png'%> <span class="badge badge-dark"><%= request_count %></span></a>
-      </li>
-      
       <li class="nav-item">
         <a class="nav-link" href="/users" tabindex="-1" aria-disabled="true"><%= image_tag 'notification.png' %></a>
       </li>
-     
-      
+      <li class="nav-item">
+        <a class="nav-link" href="/users"> <%= image_tag 'add_friend.png'%> <span class="badge badge-dark"><%= request_count %></span></a>
+      </li> 
     </ul>
 
     
